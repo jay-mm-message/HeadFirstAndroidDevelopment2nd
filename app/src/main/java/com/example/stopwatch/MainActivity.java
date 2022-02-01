@@ -8,7 +8,9 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
     final String TAG="MainActivity";
-    
+    private int seconds = 0;
+    private boolean running = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,13 +19,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickStart(View view) {
         Log.d(TAG, "onClickStart: ");
+        running = true;
     }
 
     public void onClickStop(View view) {
         Log.d(TAG, "onClickStop: ");
+        running = false;
     }
 
     public void onClickReset(View view) {
         Log.d(TAG, "onClickReset: ");
+        running = false;
+        seconds = 0;
     }
 }
