@@ -12,8 +12,14 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     final String TAG="MainActivity";
-    private int seconds = 0;
-    private boolean running = false;
+    private int seconds;
+    private boolean running;
+
+    public MainActivity() {
+
+        seconds = 0;
+        running = false;
+    }
 
     private void runTimer() {
         final TextView timeView = (TextView) findViewById(R.id.time_view);
