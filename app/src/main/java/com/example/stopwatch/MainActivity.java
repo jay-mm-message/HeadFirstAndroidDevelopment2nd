@@ -15,10 +15,17 @@ public class MainActivity extends AppCompatActivity {
     private int seconds;
     private boolean running;
 
+    private MainActivity instance;
+
+    protected static MainActivity getInstance() {
+        return instance;
+    }
+
     public MainActivity() {
 
         seconds = 0;
         running = false;
+        instance = this;
     }
 
     private void runTimer() {
