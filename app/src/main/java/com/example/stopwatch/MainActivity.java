@@ -14,8 +14,9 @@ public class MainActivity extends AppCompatActivity {
     final String TAG="MainActivity";
     private int seconds;
     private boolean running;
+    private boolean wasRunning;
 
-    private MainActivity instance;
+    private static MainActivity instance;
 
     protected static MainActivity getInstance() {
         return instance;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         seconds = 0;
         running = false;
         instance = this;
+        wasRunning = false;
     }
 
     private void runTimer() {
@@ -49,12 +51,32 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        Log.d(TAG, "onStop");
+        wasRunning = running;
+        running = false;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Log.d(TAG, "onStart");
+        if (wasRunning) {
+            running = true;
+        }
+    }
+
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
 
         Log.d(TAG, "onSaveInstanceState");
         savedInstanceState.putInt("seconds", seconds);
         savedInstanceState.putBoolean("running", running);
+        savedInstanceState.putBoolean("wasRunning", wasRunning);
     }
 
     @Override
@@ -66,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "savedInstanceState != null");
             seconds = savedInstanceState.getInt("seconds");
             running = savedInstanceState.getBoolean("running");
+            wasRunning = savedInstanceState.getBoolean("wasRunning");
         }
 
         runTimer();
