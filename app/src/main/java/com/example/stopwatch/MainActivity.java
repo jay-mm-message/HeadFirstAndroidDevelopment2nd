@@ -70,6 +70,25 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        Log.d(TAG, "onPause");
+        wasRunning = running;
+        running = false;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Log.d(TAG, "onResume");
+        if (wasRunning) {
+            running = true;
+        }
+    }
+
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
 
