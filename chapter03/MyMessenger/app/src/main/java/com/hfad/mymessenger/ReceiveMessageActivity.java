@@ -12,9 +12,14 @@ public class ReceiveMessageActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receive_message);
+//        Intent intent = getIntent();
+//        String messageText = intent.getStringExtra(EXTRA_MESSAGE);
+//        TextView messageView = (TextView)findViewById(R.id.message);
+//        messageView.setText(messageText);
+
         Intent intent = getIntent();
-        String messageText = intent.getStringExtra(EXTRA_MESSAGE);
-        TextView messageView = (TextView)findViewById(R.id.message);
-        messageView.setText(messageText);
+        String message = "Get: " + intent.getStringExtra("message");
+        TextView txv = (TextView) findViewById(R.id.message);
+        txv.setText(message);
     }
 }
