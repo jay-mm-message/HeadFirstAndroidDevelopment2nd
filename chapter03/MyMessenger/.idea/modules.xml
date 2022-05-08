@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/MyMessenger.iml" filepath="$PROJECT_DIR$/.idea/modules/MyMessenger.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MyMessenger.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MyMessenger.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MyMessenger.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MyMessenger.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MyMessenger.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MyMessenger.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MyMessenger.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MyMessenger.app.unitTest.iml" />
     </modules>
   </component>
 </project>

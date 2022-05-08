@@ -1,6 +1,7 @@
 package com.hfad.mymessenger;
 
 import android.app.Activity;
+
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,7 +26,6 @@ public class CreateMessageActivity extends Activity {
         EditText input = (EditText) findViewById(R.id.message);
         String query = input.getText().toString();
         intent.putExtra(SearchManager.QUERY, query);
-
         //intent.putExtra(Intent.EXTRA_TEXT, messageText);
 //        intent.putExtra(Intent.EXTRA_TEXT, messageText);
 //        String chooserTitle = getString(R.string.chooser);
@@ -34,7 +34,9 @@ public class CreateMessageActivity extends Activity {
 //
 //        Intent intent = new Intent(this, ReceiveMessageActivity.class);
 //        intent.putExtra("message", messageText);
-        
-        startActivity(intent);
+        Intent ChosenIntent = Intent.createChooser(intent, "Search query...");
+
+        //startActivity(intent);
+        startActivity(ChosenIntent);
     }
 }
