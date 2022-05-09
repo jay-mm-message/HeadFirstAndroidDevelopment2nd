@@ -34,7 +34,8 @@ public class CreateMessageActivity extends Activity {
 //
 //        Intent intent = new Intent(this, ReceiveMessageActivity.class);
 //        intent.putExtra("message", messageText);
-        Intent ChosenIntent = Intent.createChooser(intent, "Search query...");
+        String chooserTitle = getString(R.string.chooser);
+        Intent ChosenIntent = Intent.createChooser(intent, chooserTitle);
 
         //startActivity(intent);
         startActivity(ChosenIntent);
