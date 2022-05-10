@@ -5,11 +5,14 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 public class DelayedMessageService extends IntentService {
 
     public static final String EXTRA_MESSAGE = "message";
     public static final int NOTIFICATION_ID = 5453;
+
+    public String TAG = "DelayedMessageService:";
 
     public DelayedMessageService() {
         super("DelayedMessageService");
@@ -17,15 +20,29 @@ public class DelayedMessageService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
+
+        Log.d(TAG, "onHandleIntent");
         synchronized (this) {
             try {
-                wait(10000);
+                wait(3000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
         String text = intent.getStringExtra(EXTRA_MESSAGE);
-        showText(text);
+        Log.d(TAG, "The message: " + text);
+        //showText(text);
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Log.d(TAG, "onCreate");
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.d(TAG, "onDestroy");
     }
 
     private void showText(final String text) {
